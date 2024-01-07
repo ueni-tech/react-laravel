@@ -83,7 +83,7 @@ class ToDoController extends Controller
         $toDo = ToDo::find($id);
         // titleをToDoモデルに設定する
         $toDo -> title = $request -> get('title');
-        // ToDoデータベースを更新する
+        // ToDoテーブルを更新する
         $toDo -> save();
     }
 
