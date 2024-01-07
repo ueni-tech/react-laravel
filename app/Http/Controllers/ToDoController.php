@@ -16,9 +16,10 @@ class ToDoController extends Controller
      */
     public function index()
     {
-        // todoを取得する
+        // ToDoを取得する
         $toDos = ToDo::get();
-        // 取得したtodoを返却する
+
+        // 取得したToDoを返却する
         return $toDos;
     }
 
@@ -42,10 +43,12 @@ class ToDoController extends Controller
     {
         // 新規のToDoモデルを作成する
         $toDo = new ToDo();
-        // titleをToDOモデルに設定する
-        $toDo -> title = $request -> get('title');
+
+        // タイトルをToDoモデルに設定する
+        $toDo->title = $request->get('title');
+
         // DBにデータを登録する
-        $toDo -> save();
+        $toDo->save();
     }
 
     /**
@@ -79,12 +82,14 @@ class ToDoController extends Controller
      */
     public function update(UpdateRequest $request, $id)
     {
-        // idに紐づくToDoモデルを取得する
+        // IDに紐づくToDoモデルを取得する
         $toDo = ToDo::find($id);
-        // titleをToDoモデルに設定する
-        $toDo -> title = $request -> get('title');
-        // ToDoテーブルを更新する
-        $toDo -> save();
+
+        // タイトルをToDoモデルに設定する
+        $toDo->title = $request->get('title');
+
+        // ToDoデータベースを更新する
+        $toDo->save();
     }
 
     /**
@@ -95,9 +100,10 @@ class ToDoController extends Controller
      */
     public function destroy($id)
     {
-        // idに紐づくToDoモデルを取得する
+        // IDに紐づくToDoモデルを取得する
         $toDo = ToDo::find($id);
-        // $toDoを削除する
-        $toDo -> delete();
+
+        // ToDoデータベースから対象のレコードを削除する
+        $toDo->delete();
     }
 }

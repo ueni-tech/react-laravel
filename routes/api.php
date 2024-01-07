@@ -4,6 +4,7 @@ use App\Http\Controllers\ToDoController;
 use App\Http\Controllers\ToDoDetailController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use phpDocumentor\Reflection\Types\Resource_;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('todos', ToDoController::class);
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
 
-Route::resource('tododetails', ToDoDetailController::class);
+Route::resource('toDos', ToDoController::class);
+Route::resource('toDoDetails', ToDoDetailController::class);

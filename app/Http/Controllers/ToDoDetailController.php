@@ -37,16 +37,16 @@ class ToDoDetailController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        // 新規のToDoDetailモデルを作成する
-        $toDoDetail = new ToDoDetail();
+         // 新規のToDoDetailモデルを作成する
+         $toDoDetail = new ToDoDetail();
 
-        // $ToDoDetailに値を設定する
-        $toDoDetail->to_do_id = $request->get('to_do_id');
-        $toDoDetail->name = $request->get('name');
-        $toDoDetail->completed_flag = false;
-
-        // DBにデータを登録する
-        $toDoDetail->save();
+         // ToDoDetailに値を設定する
+         $toDoDetail->to_do_id = $request->get('to_do_id');
+         $toDoDetail->name = $request->get('name');
+         $toDoDetail->completed_flag = false;
+ 
+         // DBにデータを登録する
+         $toDoDetail->save();
     }
 
     /**
@@ -80,10 +80,12 @@ class ToDoDetailController extends Controller
      */
     public function update(UpdateRequest $request, $id)
     {
-        // idに紐づくToDoDetailモデルを取得する
+        // IDに紐づくToDoDetailモデルを取得する
         $toDoDetail = ToDoDetail::find($id);
-        // nameをToDoDetailモデルに設定する
+
+        // ネームをToDoDetailモデルに設定する
         $toDoDetail->name = $request->get('name');
+     
         // ToDoDetailテーブルを更新する
         $toDoDetail->save();
     }
@@ -96,9 +98,10 @@ class ToDoDetailController extends Controller
      */
     public function destroy($id)
     {
-        // idに紐づくToDoDetailモデルを取得する
-        $toDoDetail = ToDoDetail::find($id);
-        // $toDoDetailを削除する
-        $toDoDetail->delete();
+         // IDに紐づくToDoDetailモデルを取得する
+         $toDoDetail = ToDoDetail::find($id);
+
+         // ToDoDetailテーブルから対象のレコードを削除する
+         $toDoDetail->delete();
     }
 }
