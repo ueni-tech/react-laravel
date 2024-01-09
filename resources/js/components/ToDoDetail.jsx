@@ -1,6 +1,5 @@
 import { Delete } from '@mui/icons-material'
 import { Checkbox, IconButton, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
-import React, { useEffect } from 'react'
 
 const ToDoDetail = ({ id }) => {
   return (
