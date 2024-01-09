@@ -1,10 +1,10 @@
 import { Delete } from '@mui/icons-material'
 import { Checkbox, IconButton, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
 
-const ToDoDetail = ({ id }) => {
+const ToDoDetail = ( {detail} ) => {
   return (
     <ListItem
-      key={id}
+      key={detail.id} 
       secondaryAction={
         <IconButton edge="end" aria-label="delete">
           <Delete />
@@ -15,7 +15,7 @@ const ToDoDetail = ({ id }) => {
         <ListItemIcon>
           <Checkbox edge="start" />
         </ListItemIcon>
-        <ListItemText primary={"Test ToDoDetail" + id} />
+        <ListItemText primary={detail.name} />
       </ListItemButton>
     </ListItem>
   )

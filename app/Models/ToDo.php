@@ -13,7 +13,7 @@ class ToDo extends Model
     {
         return $this->hasMany(TodoDetail::class);
     }
- 
+
     public function delete()
     {
         // 関連するToDoDetailsのレコードを削除する
@@ -21,6 +21,5 @@ class ToDo extends Model
 
         // ToDoのレコードを削除する
         return parent::delete();
-     
     }
 }

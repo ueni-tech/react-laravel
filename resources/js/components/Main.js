@@ -5,17 +5,22 @@ import Navigation from "./Navigation";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "../pages/Home";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+const client = new QueryClient();
 
 function Main() {
   return (
     <Box>
       <Navigation />
       <Router>
-        <main className={"m-5"}>
-          <Switch>
-            <Route path="/" exact component={Home} />
-          </Switch>
-        </main>
+        <QueryClientProvider client = {client}>
+          <main className={"m-5"}>
+            <Switch>
+              <Route path="/" exact component={Home} />
+            </Switch>
+          </main>
+        </QueryClientProvider>
       </Router>
     </Box>
   );
