@@ -9,7 +9,7 @@ const ToDoDetail = ({ detail }) => {
   let toDoDetail = {
     id: detail.id,
     name: detail.name,
-    completed_flag: detail.completed_flag == 1,
+    completed_flag: detail.completed_flag,
     to_do_id: detail.to_do_id
   };
   const { updateToDoDetailMutation } = useUpdateToDoDetailMutateTask();
@@ -46,7 +46,7 @@ const ToDoDetail = ({ detail }) => {
       <ListItemButton>
         <ListItemIcon>
           <Checkbox edge="start"
-          defaultChecked = {detail.completed_flag == 1} 
+          checked = {detail.completed_flag} 
           onChange={eventCheckToDoDetail} />
         </ListItemIcon>
         <TextField
