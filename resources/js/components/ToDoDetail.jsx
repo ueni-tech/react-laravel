@@ -10,6 +10,7 @@ const ToDoDetail = ({ detail }) => {
     id: detail.id,
     name: detail.name,
     completed_flag: detail.completed_flag == 1,
+    to_do_id: detail.to_do_id
   };
   const { updateToDoDetailMutation } = useUpdateToDoDetailMutateTask();
 
