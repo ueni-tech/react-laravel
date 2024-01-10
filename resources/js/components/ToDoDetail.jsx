@@ -9,6 +9,7 @@ const ToDoDetail = ({ detail }) => {
   let toDoDetail = {
     id: detail.id,
     name: detail.name,
+    completed_flag: detail.completed_flag == 1,
   };
   const { updateToDoDetailMutation } = useUpdateToDoDetailMutateTask();
 
@@ -18,7 +19,6 @@ const ToDoDetail = ({ detail }) => {
       let data = {
         ...toDoDetail,
         name: e.target.value,
-        completed_flag: detail.completed_flag == 1,
       };
       updateToDoDetailMutation.mutate(data);
     }, 500);
