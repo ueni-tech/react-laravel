@@ -14,13 +14,12 @@ function Main() {
     <Box>
       <Navigation />
       <Router>
-        <QueryClientProvider client = {client}>
+        <QueryClientProvider client={client}>
           <main className={"m-5"}>
             <Switch>
               <Route path="/" exact component={Home} />
             </Switch>
           </main>
-          <ReactQueryDevtools></ReactQueryDevtools>
         </QueryClientProvider>
       </Router>
     </Box>
